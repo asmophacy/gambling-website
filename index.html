@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Casino</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .coins {
+            font-size: 24px;
+            color: gold;
+        }
+
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        button {
+            background: #ffd700;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #ffed4a;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Virtual Casino</h1>
+        <p>Your Balance: <span id="balance" class="coins">100</span> coins</p>
+    </div>
+
+    <div class="games-container">
+        <!-- Coin Flip -->
+        <div class="game-card">
+            <h2>Coin Flip</h2>
+            <p>Bet on heads or tails!</p>
+            <button onclick="playCoinFlip('heads')">Bet Heads (10 coins)</button>
+            <button onclick="playCoinFlip('tails')">Bet Tails (10 coins)</button>
+            <div id="coinFlipResult" class="result"></div>
+        </div>
+
+        <!-- Dice Roll -->
+        <div class="game-card">
+            <h2>Dice Roll</h2>
+            <p>Guess the number (1-6)</p>
+            <input type="number" id="diceGuess" min="1" max="6" value="1">
+            <button onclick="playDiceRoll()">Roll (15 coins)</button>
+            <div id="diceResult" class="result"></div>
+        </div>
+
+        <!-- Slot Machine -->
+        <div class="game-card">
+            <h2>Slot Machine</h2>
+            <p>Try your luck!</p>
+            <button onclick="playSlots()">Spin (20 coins)</button>
+            <div id="slotsResult" class="result"></div>
+        </div>
+
+        <!-- Number Guess -->
+        <div class="game-card">
+            <h2>Number Guess</h2>
+            <p>Guess a number between 1-10</p>
+            <input type="number" id="numberGuess" min="1" max="10" value="1">
+            <button onclick="playNumberGuess()">Guess (25 coins)</button>
+            <div id="numberGuessResult" class="result"></div>
+        </div>
+
+        <!-- Blackjack -->
+        <div class="game-card">
+            <h2>Blackjack</h2>
+            <p>Try to get closest to 21!</p>
+            <button onclick="playBlackjack()">Play (30 coins)</button>
+            <div id="blackjackResult" class="result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
